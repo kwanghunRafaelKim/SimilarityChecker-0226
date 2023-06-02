@@ -16,12 +16,24 @@ public:
 		return inputStr.size();
 	}
 
-	int getGAPfromStrSize(void)
+	int getGAPfromStrSize(int sizestr1, int sizestr2)
 	{
-		int GAP = getStrSize(minputstr1) - getStrSize(minputstr2) > 0 ?
-			      getStrSize(minputstr1) - getStrSize(minputstr2) :
-		          getStrSize(minputstr2) - getStrSize(minputstr1);
-		return GAP;
+		return sizestr1 - sizestr2 >= 0 ?
+			sizestr1 - sizestr2 :
+			sizestr2 - sizestr1;
+	}
+
+	int getScorefromlength()
+	{
+		int sizeofstr1 = getStrSize(minputstr1);
+		int sizeofstr2 = getStrSize(minputstr2);
+
+		int GAP = getGAPfromStrSize(sizeofstr1, sizeofstr2);
+		int longersize = sizeofstr1 - sizeofstr2 >= 0 ? sizeofstr1 : sizeofstr2;
+
+		double score = (double)((double)1 - ((double)GAP / (double)longersize)) * 60;
+
+		return (int)score;
 	}
 
 private:
