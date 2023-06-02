@@ -41,10 +41,9 @@ public:
 		return (int)score;
 	}
 
-	int getTotalCntinstrs()
+	void drawMaptogettotalCnt(int(& totalmap)[26])
 	{
-		int totalmap[26] = {};
-		for(char ch:minputstr1)
+		for(char ch : minputstr1)
 		{
 			totalmap[ch-'A']++;
 		}
@@ -52,12 +51,24 @@ public:
 		{
 			totalmap[ch - 'A']++;
 		}
+	}
 
+	int getTotalCntofStrs(int totalmap[26])
+	{
 		int totalcnt = 0;
 		for(int i = 0;i<26;i++)
 		{
 			if (totalmap[i]) totalcnt++;
 		}
+		return totalcnt;
+	}
+
+	int getTotalCntinstrs()
+	{
+		int CountCharMap[26] ={};
+		drawMaptogettotalCnt(CountCharMap);
+
+		int totalcnt = getTotalCntofStrs(CountCharMap);
 
 		return totalcnt;
 	}

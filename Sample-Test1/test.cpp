@@ -33,7 +33,11 @@ TEST(SimilarityChecker, getScorefromlength_30) {
 	EXPECT_EQ(30, sm_checker.getScorefromlength());
 }
 
-TEST(SimilarityChecker, getTotalCntinstrs_4) {
+TEST(SimilarityChecker, getTotalCntinstrs_6) {
 	SimiliarityChecker sm_checker{ "ABCDEF" ,"CDEF" };
 	EXPECT_EQ(6, sm_checker.getTotalCntinstrs());
+}
+TEST(SimilarityChecker, getTotalCntinstrs_8) {
+	SimiliarityChecker sm_checker{ "ABCDEF" ,"CDEFHZ" };
+	EXPECT_EQ(8, sm_checker.getTotalCntinstrs());
 }
