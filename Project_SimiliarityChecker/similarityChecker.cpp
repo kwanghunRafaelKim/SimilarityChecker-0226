@@ -10,7 +10,10 @@ public:
 		  minputstr2(minputstr2)
 	{
 	}
-
+	int gettotalScore()
+	{
+		return getScorefromalpha() + getScorefromlength();
+	}
 	int getScorefromlength()
 	{
 		int sizeofstr1 = getStrSize(minputstr1);
@@ -23,16 +26,12 @@ public:
 
 		return (int)score;
 	}
-
-	void drawMaptogettotalCnt(int(& totalmap)[26])
+	int getScorefromalpha()
 	{
-		for(char ch : minputstr1)
+		int totalcnt = getTotalCntinstrs();
+		if (totalcnt != 0)
 		{
-			totalmap[ch-'A']++;
-		}
-		for (char ch : minputstr2)
-		{
-			totalmap[ch - 'A']++;
+			return  getSameCntinstrs() * 40 / totalcnt;
 		}
 	}
 
@@ -45,6 +44,26 @@ public:
 
 		return totalcnt;
 	}
+
+	int getSameCntinstrs()
+	{
+		int samecnt = 0;
+		int CheckMap[26] = {};
+	
+		for(char ch1: minputstr1)
+		{
+			for (char ch2 : minputstr2)
+			{
+				if(ch1 == ch2 && CheckMap[ch1-'A'] == 0)
+				{
+					CheckMap[ch1 - 'A'] = 1;
+					samecnt++;
+				}
+			}
+		}
+		return samecnt;
+	}
+
 
 private:
 	int getStrSize(string inputStr)
@@ -70,5 +89,18 @@ private:
 		}
 		return totalcnt;
 	}
+	void drawMaptogettotalCnt(int(&totalmap)[26])
+	{
+		for (char ch : minputstr1)
+		{
+			totalmap[ch - 'A']++;
+		}
+		for (char ch : minputstr2)
+		{
+			totalmap[ch - 'A']++;
+		}
+	}
+
+
 	string minputstr1, minputstr2;
 };

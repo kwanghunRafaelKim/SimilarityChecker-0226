@@ -41,3 +41,30 @@ TEST(SimilarityChecker, getTotalCntinstrs_8) {
 	SimiliarityChecker sm_checker{ "ABCDEF" ,"CDEFHZ" };
 	EXPECT_EQ(8, sm_checker.getTotalCntinstrs());
 }
+
+TEST(SimilarityChecker, getSameCntinstrs_4) {
+	SimiliarityChecker sm_checker{ "ABCDEF" ,"CDEF" };
+	EXPECT_EQ(4, sm_checker.getSameCntinstrs());
+}
+TEST(SimilarityChecker, getSameCntinstrs_4_2) {
+	SimiliarityChecker sm_checker{ "AABBCCDDEEFF" ,"CDEF" };
+	EXPECT_EQ(4, sm_checker.getSameCntinstrs());
+}
+TEST(SimilarityChecker, getSameCntinstrs_6) {
+	SimiliarityChecker sm_checker{ "AZCEFCJUNGYY" ,"JAYCEFK" };
+	EXPECT_EQ(6, sm_checker.getSameCntinstrs());
+}
+
+TEST(SimilarityChecker, getScorefromalpha_40) {
+	SimiliarityChecker sm_checker{ "AAB" ,"AB" };
+	EXPECT_EQ(40, sm_checker.getScorefromalpha());
+}
+TEST(SimilarityChecker, getScorefromalpha_20) {
+	SimiliarityChecker sm_checker{ "A" ,"AB" };
+	EXPECT_EQ(20, sm_checker.getScorefromalpha());
+}
+
+TEST(SimilarityChecker, gettotalScore_100) {
+	SimiliarityChecker sm_checker{ "BA" ,"AB" };
+	EXPECT_EQ(100, sm_checker.gettotalScore());
+}
