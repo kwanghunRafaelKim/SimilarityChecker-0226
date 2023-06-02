@@ -34,37 +34,7 @@ public:
 			return  getSameCntinstrs() * 40 / totalcnt;
 		}
 	}
-
-	int getTotalCntinstrs()
-	{
-		int CountCharMap[26] ={};
-		drawMaptogettotalCnt(CountCharMap);
-
-		int totalcnt = getTotalCntofStrs(CountCharMap);
-
-		return totalcnt;
-	}
-
-	int getSameCntinstrs()
-	{
-		int samecnt = 0;
-		int CheckMap[26] = {};
 	
-		for(char ch1: minputstr1)
-		{
-			for (char ch2 : minputstr2)
-			{
-				if(ch1 == ch2 && CheckMap[ch1-'A'] == 0)
-				{
-					CheckMap[ch1 - 'A'] = 1;
-					samecnt++;
-				}
-			}
-		}
-		return samecnt;
-	}
-
-
 private:
 	int getStrSize(string inputStr)
 	{
@@ -99,6 +69,34 @@ private:
 		{
 			totalmap[ch - 'A']++;
 		}
+	}
+	int getTotalCntinstrs()
+	{
+		int CountCharMap[26] = {};
+		drawMaptogettotalCnt(CountCharMap);
+
+		int totalcnt = getTotalCntofStrs(CountCharMap);
+
+		return totalcnt;
+	}
+
+	int getSameCntinstrs()
+	{
+		int samecnt = 0;
+		int CheckMap[26] = {};
+
+		for (char ch1 : minputstr1)
+		{
+			for (char ch2 : minputstr2)
+			{
+				if (ch1 == ch2 && CheckMap[ch1 - 'A'] == 0)
+				{
+					CheckMap[ch1 - 'A'] = 1;
+					samecnt++;
+				}
+			}
+		}
+		return samecnt;
 	}
 
 
