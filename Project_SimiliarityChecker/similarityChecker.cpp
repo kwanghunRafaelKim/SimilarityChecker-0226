@@ -41,6 +41,27 @@ public:
 		return (int)score;
 	}
 
+	int getTotalCntinstrs()
+	{
+		int totalmap[26] = {};
+		for(char ch:minputstr1)
+		{
+			totalmap[ch-'A']++;
+		}
+		for (char ch : minputstr2)
+		{
+			totalmap[ch - 'A']++;
+		}
+
+		int totalcnt = 0;
+		for(int i = 0;i<26;i++)
+		{
+			if (totalmap[i]) totalcnt++;
+		}
+
+		return totalcnt;
+	}
+
 private:
 	string minputstr1, minputstr2;
 };
