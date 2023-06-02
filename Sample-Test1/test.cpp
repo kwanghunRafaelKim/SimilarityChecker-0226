@@ -24,3 +24,11 @@ TEST(SimilarityChecker, getScorefromlength_60) {
 	SimiliarityChecker sm_checker{ "ABC" ,"DEF" };
 	EXPECT_EQ(60, sm_checker.getScorefromlength());
 }
+TEST(SimilarityChecker, getScorefromlength_40) {
+	SimiliarityChecker sm_checker{ "ABC" ,"CDEF" };
+	EXPECT_EQ(40, sm_checker.getScorefromlength());
+}
+TEST(SimilarityChecker, getScorefromlength_30) {
+	SimiliarityChecker sm_checker{ "ABCDEF" ,"CDEF" };
+	EXPECT_EQ(30, sm_checker.getScorefromlength());
+}
