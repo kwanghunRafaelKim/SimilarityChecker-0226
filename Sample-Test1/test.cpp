@@ -1,8 +1,8 @@
 #include "pch.h"
 #include "../Project_SimiliarityChecker/similarityChecker.cpp"
 
-TEST(TestCaseName, TestName) {
-	SimiliarityChecker sm_checker;
-  EXPECT_EQ(1, 1);
-  EXPECT_TRUE(true);
+TEST(SimilarityChecker, CheckStrSize) {
+  SimiliarityChecker sm_checker{};
+  string inputStr = "ABC";
+  EXPECT_EQ(3, sm_checker.getStrSize(inputStr));  
 }
