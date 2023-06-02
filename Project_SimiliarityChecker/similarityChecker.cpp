@@ -11,23 +11,6 @@ public:
 	{
 	}
 
-	int getStrSize(string inputStr)
-	{
-		return inputStr.size();
-	}
-
-	int getGAPfromStrSize(int sizestr1, int sizestr2)
-	{
-		return sizestr1 >= sizestr2 ?
-			sizestr1 - sizestr2 :
-			sizestr2 - sizestr1;
-	}
-
-	int getshortergerSize(int sizeofstr1, int sizeofstr2)
-	{
-		return sizeofstr1 >= sizeofstr2 ? sizeofstr2 : sizeofstr1;
-	}
-
 	int getScorefromlength()
 	{
 		int sizeofstr1 = getStrSize(minputstr1);
@@ -53,16 +36,6 @@ public:
 		}
 	}
 
-	int getTotalCntofStrs(int totalmap[26])
-	{
-		int totalcnt = 0;
-		for(int i = 0;i<26;i++)
-		{
-			if (totalmap[i]) totalcnt++;
-		}
-		return totalcnt;
-	}
-
 	int getTotalCntinstrs()
 	{
 		int CountCharMap[26] ={};
@@ -74,5 +47,28 @@ public:
 	}
 
 private:
+	int getStrSize(string inputStr)
+	{
+		return inputStr.size();
+	}
+	int getGAPfromStrSize(int sizestr1, int sizestr2)
+	{
+		return sizestr1 >= sizestr2 ?
+			sizestr1 - sizestr2 :
+			sizestr2 - sizestr1;
+	}
+	int getshortergerSize(int sizeofstr1, int sizeofstr2)
+	{
+		return sizeofstr1 >= sizeofstr2 ? sizeofstr2 : sizeofstr1;
+	}
+	int getTotalCntofStrs(int totalmap[26])
+	{
+		int totalcnt = 0;
+		for (int i = 0; i < 26; i++)
+		{
+			if (totalmap[i]) totalcnt++;
+		}
+		return totalcnt;
+	}
 	string minputstr1, minputstr2;
 };
