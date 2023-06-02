@@ -18,14 +18,14 @@ public:
 
 	int getGAPfromStrSize(int sizestr1, int sizestr2)
 	{
-		return sizestr1 - sizestr2 >= 0 ?
+		return sizestr1 >= sizestr2 ?
 			sizestr1 - sizestr2 :
 			sizestr2 - sizestr1;
 	}
 
 	int getshortergerSize(int sizeofstr1, int sizeofstr2)
 	{
-		return sizeofstr1 - sizeofstr2 >= 0 ? sizeofstr2 : sizeofstr1;
+		return sizeofstr1 >= sizeofstr2 ? sizeofstr2 : sizeofstr1;
 	}
 
 	int getScorefromlength()
